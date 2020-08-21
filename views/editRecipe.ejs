@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav mx-auto">
+          <a class="navbar-brand mx-auto" href="#"><h2>African Delight</h2></a>
+          <!-- <a class="nav-link active" href="#"
+            >Home <span class="sr-only">(current)</span></a
+          > -->
+          <div class="container-fluid mx-auto">
+            <a class="nav-link" href="/recipes">All Recipee</a>
+            <a class="nav-link" href="/recipes/create">Create Recipee</a>
+            <a class="nav-link" href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container row justify-content-center">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 text-center" style="padding-top: 50px;">
+        <h4 class="text-white">Edit - <b><%= data.title %></b></h4>
+        <div class="">
+          <form action="/recipes/edit" method="POST">
+            <input name="_id" value="<%= data._id %>" type="hidden" />
+
+            <div>
+              <input
+                name="title"
+                class="form-control"
+                placeholder="title"
+                value="<%= data.title %>"
+              />
+            </div>
+            <br /><br />
+            <div>
+              <input
+                name="description"
+                class="form-control"
+                placeholder="description"
+                value="<%= data.description %>"
+              />
+            </div>
+            <br /><br />
+            <div>
+              <input
+                name="prepTime"
+                class="form-control"
+                placeholder="preparation time"
+                value="<%= data.prepTime %>"
+              />
+            </div>
+            <br /><br />
+            <div>
+              <textarea
+                name="ingredient"
+                class="form-control"
+                placeholder="ingredients"
+              >
+<%= data.ingredient %></textarea
+              >
+            </div>
+            <br /><br />
+            <div>
+              <textarea
+                name="directions"
+                class="form-control"
+                placeholder="Directions"
+              >
+<%= data.directions %></textarea
+              >
+            </div>
+            <br /><br />
+
+            <div>
+              <button type="submit" class="btn btn-primary form-control">
+                Save Recipe
+              </button>
+            </div>
+            <% if( typeof err != 'undefined'){%>
+            <span class="text-white"> <%= err%></span>
+            <% }%>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

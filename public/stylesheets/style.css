@@ -1,0 +1,13 @@
+body {
+  background-image: url(/images/baked-jollof-rice.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}

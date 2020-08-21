@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body style="overflow: scroll;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav mx-auto">
+          <a class="navbar-brand mx-auto" href="#"><h2>African Delight</h2></a>
+          <!-- <a class="nav-link active" href="#"
+            >Home <span class="sr-only">(current)</span></a
+          > -->
+          <div class="container-fluid mx-auto">
+            <a class="nav-link" href="/recipes">All Recipes</a>
+            <a class="nav-link" href="/recipes/create">Create Recipe</a>
+            <a class="nav-link" href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container row justify-content-center">
+      <div class="col-md-2"></div>
+      <div class="col-md-10 offset-md-5 text-center" style="padding-top: 50px;">
+        <% for (let i = 0; i< data.length; i++){%>
+        <div class="card">
+          <div class="card-head">
+            <img class="card-img-top" src="/images/<%=data[i].img%>" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= data[i].title%></h5>
+            <h3 class="card-text">
+              <%= data[i].description%>
+            </h3>
+            <p class="card-text">
+              <%= data[i].prepTime%>
+            </p>
+
+            <p class="card-text">
+              <%= data[i].ingredient%>
+            </p>
+
+            <p class="card-text">
+              <%= data[i].directions%>
+            </p>
+            <a href="/recipes/edit/<%= data[i]._id %>" class="card-link"
+              >Edit</a
+            >
+            <a
+              href="/recipes/delete/<%= data[i]._id %>"
+              class="card-link text-danger"
+              >Delete</a
+            >
+          </div>
+        </div>
+        <br /><br />
+        <%}%>
+      </div>
+    </div>
+  </body>
+</html>
